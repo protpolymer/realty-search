@@ -3,6 +3,8 @@ package ru.itpark.service;
 import ru.itpark.domain.ApartmentRent;
 import ru.itpark.repository.ApartmentRentRepository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,10 +28,11 @@ public class ApartmentRentService {
         result.sort(comparator);
         return result;
     }
-    public ApartmentRentService getApartmentRentFilterDistrict(String district){
-        ApartmentRentService result = new ApartmentRentService(new ApartmentRentRepository());
+    public List<ApartmentRent> findByDistrict(String... districts){
+        List<ApartmentRent> result = new ArrayList<>();
+        List<String> districtsList = Arrays.asList(districts);
         for (ApartmentRent apartmentRent : repository.getAll()) {
-            if(apartmentRent.getDistrict().equalsIgnoreCase(district)){
+            if(districtsList.contains(apartmentRent.getDistrict())){
                 result.add(apartmentRent);
             }
         }

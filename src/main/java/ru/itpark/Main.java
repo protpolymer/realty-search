@@ -47,18 +47,18 @@ public class Main {
 
         System.out.println(apartmentRentService.getAll());
         System.out.println(apartmentRentService.getSortedCost(new CostApartmentRentAscComparator()));
-        System.out.println(apartmentRentService.getApartmentRentFilterDistrict("вахитовский").getSortedCost(new CostApartmentRentDescComparator()));
+        System.out.println(apartmentRentService.findByDistrict("Вахитовский", "Авиастроительный"));
 
         System.out.println(apartmentSaleService.getAll());
         System.out.println(apartmentSaleService.getSortedCost(new CostApartmentSaleAscComparator()));
-        System.out.println(apartmentRentService.getApartmentRentFilterDistrict("авиастроительный").getSortedCost(new CostApartmentRentDescComparator()));
+        System.out.println(apartmentSaleService.findByDistrict("Ново-Савиновский", "Авиастроительный"));
 
         System.out.println(houseRentService.getAll());
         System.out.println(houseRentService.getSortedCost(new CostHouseRentDescComparator()));
-        System.out.println(houseRentService.getFilterDistrict("авиастроительный").getSortedCost(new CostHouseRentAscComparator()));
+        System.out.println(houseRentService.findByDistrict("Авиастроительный", "Мытищинский"));
 
         System.out.println(houseSaleService.getAll());
         System.out.println(houseSaleService.getSortedCost(new CostHouseSaleAscComparator()));
-        System.out.println(houseSaleService.getFilterDistrict("ново-савиновский").getSortedCost(new CostHouseSaleDescComparator()));
+        System.out.println(houseSaleService.findByDistrict("Ново-савиновский"));
     }
 }

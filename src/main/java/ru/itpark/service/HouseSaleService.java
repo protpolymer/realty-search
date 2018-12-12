@@ -3,6 +3,8 @@ package ru.itpark.service;
 import ru.itpark.domain.HouseSale;
 import ru.itpark.repository.HouseSaleRepository;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,10 +28,11 @@ public class HouseSaleService{
         result.sort(comparator);
         return result;
     }
-    public HouseSaleService getFilterDistrict(String district) {
-        HouseSaleService result = new HouseSaleService(new HouseSaleRepository());
+    public List<HouseSale> findByDistrict(String... districts) {
+        List<HouseSale> result = new ArrayList<>();
+        List<String> districtList = Arrays.asList(districts);
         for (HouseSale houseSale : repository.getAll()) {
-            if (houseSale.getDistrict().equalsIgnoreCase(district)) {
+            if (districtList.contains(houseSale.getDistrict())) {
                 result.add(houseSale);
             }
         }
