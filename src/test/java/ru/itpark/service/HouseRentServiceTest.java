@@ -3,9 +3,7 @@ package ru.itpark.service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.itpark.domain.HouseRent;
-import ru.itpark.domain.HouseSale;
 import ru.itpark.repository.HouseRentRepository;
-import ru.itpark.repository.HouseSaleRepository;
 
 import java.util.List;
 
@@ -20,6 +18,7 @@ class HouseRentServiceTest {
         repository.add(new HouseRent(2, 1, 80_000, null, "Ново-Савиновский", 18_000, null, null));
         repository.add(new HouseRent(3, 2, 120_000, null, "Вахитовский", 60_000, null, null));
         repository.add(new HouseRent(4, 2, 150_000, null, "Ново-Савиновский", 25_000, null, null));
+        service = new HouseRentService(repository);
     }
 
     @Test
