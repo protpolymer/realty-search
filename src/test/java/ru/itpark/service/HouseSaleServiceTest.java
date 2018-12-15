@@ -18,6 +18,7 @@ class HouseSaleServiceTest {
         repository.add(new HouseSale(2, 1, 80_000, null, "Ново-Савиновский", 3_600_000, null, null));
         repository.add(new HouseSale(3, 2, 120_000, null, "Вахитовский", 12_000_000, null, null));
         repository.add(new HouseSale(4, 2, 150_000, null, "Ново-Савиновский", 5_000_000, null, null));
+        service = new HouseSaleService(repository);
     }
 
     @Test
