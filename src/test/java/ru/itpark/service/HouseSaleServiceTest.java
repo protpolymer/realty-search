@@ -23,15 +23,15 @@ class HouseSaleServiceTest {
 
     @Test
     void addWithOneResult() {
-        int result = service.getAll().size();
         service.add(new HouseSale(5, 2, 150_000, null, "Ново-Савиновский", 5_000_000, null, null));
+        int result = service.getAll().size();
         assertEquals(5, result);
     }
     @Test
     void addWithMultipleResult() {
-        int result = service.getAll().size();
         service.add(new HouseSale(5, 2, 150_000, null, "Ново-Савиновский", 5_000_000, null, null));
         service.add(new HouseSale(6, 2, 150_000, null, "Ново-Савиновский", 5_000_000, null, null));
+        int result = service.getAll().size();
         assertEquals(6, result);
     }
 
@@ -45,11 +45,11 @@ class HouseSaleServiceTest {
     void findByDistrictWithZeroResult() {
         {
             List<HouseSale> result = service.findByDistrict("Кировский");
-            assertEquals(1, result.size());
+            assertEquals(0, result.size());
         }
         {
             List<HouseSale> result = service.findByDistrict("Мытищинский");
-            assertEquals(1, result.size());
+            assertEquals(0, result.size());
         }
     }
     @Test
@@ -66,7 +66,7 @@ class HouseSaleServiceTest {
     @Test
     void findByDistrictWithMultipleResult() {
         List<HouseSale> result = service.findByDistrict("Ново-Савиновский");
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
 
     }
 }
